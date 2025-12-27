@@ -8,17 +8,67 @@ A total of **13 business-driven SQL queries** were written and optimized to demo
 
 ---
 
-## 📂 Dataset Description
-The dataset consists of four relational tables:
+## 📊 Dataset Content
 
-- **orders** – Order-level information (date, time, order_id)
-- **order_details** – Line-item level details (pizza_id, quantity)
-- **pizzas** – Pizza size and price details
-- **pizza_types** – Pizza name and category details
-
-These tables were joined using primary and foreign keys to perform meaningful analysis.
+The analysis is performed on a relational dataset consisting of four CSV files.  
+Each table represents a different aspect of Pizza Hut’s sales operations.
 
 ---
+
+### 🍽️ orders.csv
+Contains order-level information.
+
+| Column Name | Description |
+|------------|-------------|
+| order_id | Unique identifier for each order |
+| date | Date on which the order was placed |
+| time | Time at which the order was placed |
+
+---
+
+### 🧾 order_details.csv
+Contains item-level details for each order.
+
+| Column Name | Description |
+|------------|-------------|
+| order_details_id | Unique identifier for each order line item |
+| order_id | References the corresponding order |
+| pizza_id | References the pizza ordered |
+| quantity | Number of pizzas ordered |
+
+---
+
+### 🍕 pizzas.csv
+Contains pricing and size information for pizzas.
+
+| Column Name | Description |
+|------------|-------------|
+| pizza_id | Unique identifier for each pizza |
+| pizza_type_id | References the pizza type |
+| size | Pizza size (S, M, L, XL, XXL) |
+| price | Price of the pizza |
+
+---
+
+### 📋 pizza_types.csv
+Contains descriptive information about pizza types.
+
+| Column Name | Description |
+|------------|-------------|
+| pizza_type_id | Unique identifier for each pizza type |
+| name | Name of the pizza |
+| category | Pizza category (Classic, Veggie, Chicken, Supreme) |
+| ingredients | Ingredients used in the pizza |
+
+---
+
+### 🔗 Dataset Relationships
+- `orders.order_id` → `order_details.order_id`
+- `order_details.pizza_id` → `pizzas.pizza_id`
+- `pizzas.pizza_type_id` → `pizza_types.pizza_type_id`
+
+These relationships enable comprehensive sales, revenue, and category-level analysis using SQL joins.
+
 
 ## ❓ Business Questions Solved
 
